@@ -1,8 +1,8 @@
 import React from "react";
 
-const UserContext = React.createContext({
+const InternContext = React.createContext({
     user:{},
     changeUser: (user) => {},
 })
 
-export default UserContext
+export default InternContext

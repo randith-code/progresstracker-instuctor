@@ -4,7 +4,7 @@ import {ReactComponent as Intern} from '../assets/Intern.svg'
 import {ReactComponent as User } from '../assets/user.svg'
 import { NavLink } from "react-router-dom";
 import internData from "../data/internData";
-import UserContext from "../store/UserContext";
+import InternContext from "../store/Intern/InternContext";
 
 
 export const Tittle = (props) => {
@@ -22,8 +22,8 @@ export const Tittle = (props) => {
 const SlideBar = (props) => {
 
     const [visibility, setVisbility] = useState(false)
-    const ctx = useContext(UserContext)
-    
+    const ctx = useContext(InternContext)
+
     return(
         <section className={`w-full sm:w-1/5 hidden sm:flex flex-col justify-center items-center bg-white drop-shadow-lg`}>
            <span className="w-full h-5/6 flex flex-col gap-2 items-center">

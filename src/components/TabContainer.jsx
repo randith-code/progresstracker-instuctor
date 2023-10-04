@@ -1,13 +1,13 @@
 import React, {useState, useContext} from "react";
 import Tasks from "./Tasks";
 import Diary from "./Diary";
-import UserContext from "../store/UserContext";
+import InternContext from "../store/Intern/InternContext";
 
 
 const TabContainer = () => {
 
     const [selectTab, setSelectTab] = useState("tasks")
-    const ctx = useContext(UserContext)
+    const ctx = useContext(InternContext)
 
 
     return(

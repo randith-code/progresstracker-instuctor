@@ -3,24 +3,25 @@ import NavBar from "./NavBar"
 import SlideBar from "./SlideBar"
 import MobileSlider from "../components/MobileSlider"
 import { Outlet, useNavigate } from "react-router-dom"
-import UserContextProvider from "../store/UesrContextProvider"
+import InternContextProvider from "../store/Intern/InternContextProvider"
+import { useAuth } from "../store/Auth/AuthContextProvider"
 
 const LayoutItemsContainer = () => {
 
     const navigate = useNavigate()
     const [open, setOpen] = useState(false)
+    const { currentUser } = useAuth()
 
     useEffect(() => {
-        if (!localStorage.getItem("user")) {
+        if (currentUser === null) {
           navigate('/login')
-          console.log("run")
         } 
       },[]);
 
     return(
-        <div className='w-screen h-screen flex flex-col'>
+            <div className='w-screen h-screen flex flex-col'>
             <NavBar open={open} setOpen={setOpen}/>
-            <UserContextProvider>
+            <InternContextProvider>
                 <div className="relative w-full flex-1 flex">
                     <MobileSlider open={open} setOpen={setOpen}/>
                     <SlideBar open={open}/>
@@ -28,8 +29,8 @@ const LayoutItemsContainer = () => {
                         <Outlet/>
                     </div>
                 </div>
-            </UserContextProvider>
-        </div>
+            </InternContextProvider>
+            </div>
     )
 }
 

@@ -1,7 +1,7 @@
 import React,{useReducer} from "react";
-import UserContext from "./UserContext";
-import userReducer from "./UserReducer";
-import Actions from "./Actions";
+import InternContext from "./InternContext";
+import userReducer from "./InternReducer";
+import Actions from "../Actions";
 
 const defaultUserState ={
     user:{}
@@ -24,9 +24,9 @@ const UserContextProvider = (props) => {
     }
 
     return(
-        <UserContext.Provider  value={userContext}>
+        <InternContext.Provider  value={userContext}>
             {props.children}
-        </UserContext.Provider>
+        </InternContext.Provider>
     )
 }
 

@@ -18,6 +18,7 @@ const Profile= () => {
 }
 
 const NavBar = (props) => {
+
     return(
        <div className="w-full flex justify-center bg-white py-1 drop-shadow-md ">
         <div className="w-11/12 flex h-fit justify-between items-center ">
