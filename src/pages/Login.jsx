@@ -1,23 +1,12 @@
 import React,{useState} from "react";
 // import { GoogleLogin } from "react-google-login"
-import { useNavigate } from "react-router-dom";
 import loginImage from '../assets/LoginImage.jpg'
 import LoginCard from "../components/LoginCard";
 import SignupCard from "../components/SignupCard";
 
 const Login = () => {
 
-    const navigate = useNavigate()
     const [haveAccount, setHaveAccount] = useState(true)
-
-    const onSuccess = (res) => {
-        localStorage.setItem("user", JSON.stringify(res.profileObj))
-        navigate('/')
-    }
-
-    const onFailure = () => {
-        console.log('login fail')
-    }
 
     return(
         <div className="w-screen h-screen flex flex-col sm:flex-row overflow-hidden">
@@ -29,22 +18,6 @@ const Login = () => {
             </section>
             <section className="w-full sm:w-1/2 h-3/4 sm:h-full grid place-items-center">
                 {haveAccount ? <LoginCard setCard={setHaveAccount}/> : <SignupCard setCard={setHaveAccount}/>}                
-               {/* <span className="flex flex-col gap-8 bg-white drop-shadow-lg w-3/4 sm:w-1/2 p-5 rounded-md">
-                <h1 className="text-xl text-blue-700 font-semibold">LogIn</h1>
-                <p className="text-gray-700 text-sm">
-                    Monitor your journey to enhance your career.
-                </p>
-                <span className="grid place-items-center w-full">
-                    <GoogleLogin
-                        clientId={process.env.REACT_APP_CLIENT_ID}
-                        buttonText="Login With Google"
-                        onSuccess={onSuccess}
-                        onFailure={onFailure} 
-                        cookiePolicy={'single_host_origin'} 
-                        isSignedIn={true}
-                    />
-                </span>
-               </span> */}
             </section>
         </div>
     )

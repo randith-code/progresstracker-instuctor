@@ -8,7 +8,7 @@ const Profile= () => {
 
     return(
         <div className="flex flex-col">
-            <img src={user ? user.imageUrl : ''} alt="profile" 
+            <img src={user ? user.photoURL : ''} alt="profile" 
                 className="w-8 sm:w-10 aspect-square rounded-full bg-slate-600 mx-3 cursor-pointer"
                 onClick={() => setIsVisible(true)}
             />

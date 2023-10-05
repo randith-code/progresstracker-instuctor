@@ -13,10 +13,12 @@ const LayoutItemsContainer = () => {
     const { currentUser } = useAuth()
 
     useEffect(() => {
-        if (currentUser === null) {
+        if (!localStorage.getItem('user')) {
           navigate('/login')
         } 
       },[]);
+
+
 
     return(
             <div className='w-screen h-screen flex flex-col'>
