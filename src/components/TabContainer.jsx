@@ -12,8 +12,8 @@ const TabContainer = () => {
 
     return(
         <div className="w-full h-full flex flex-col gap-4">
-            <div className="bg-white rounded-md drop-shadow-md w-1/6 py-5 grid place-items-center text-gray-600 text-lg">
-                {ctx.user.name}
+            <div className="bg-white rounded-md drop-shadow-md w-1/6 py-5 grid place-items-center text-center text-gray-600 text-lg">
+                {ctx.user ? ctx.user.name : null}
             </div>
             <div className="flex-1 flex flex-col">
                 <section className="flex justify-center">

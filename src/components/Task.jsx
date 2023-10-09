@@ -27,6 +27,7 @@ const Task =(props) => {
                     startDate={props.startDate} 
                     dueDate={props.dueDate} 
                     instructor={props.instructor}
+                    links={props.links}
                     setVisibility={setIsVisible}
                 />
             </ModelOverlay>

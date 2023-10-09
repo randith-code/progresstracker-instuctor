@@ -4,7 +4,7 @@ import userReducer from "./InternReducer";
 import Actions from "../Actions";
 
 const defaultUserState ={
-    user:{}
+    user:null
 }
 
 const UserContextProvider = (props) => {

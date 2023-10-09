@@ -30,15 +30,25 @@ export const Filter = () => {
     )
 }
 
-export const Sort = () => {
+export const Sort = (props) => {
     return(
         <label htmlFor="sort">
             Sort : &nbsp;
-            <select className="border border-gray-300" name="sort" id="sort">
+            <select onChange={(e) => props.setValue(e.target.value)} defaultValue="ascending" className="border border-gray-300" name="sort" id="sort">
                 <option value="ascending">Ascending</option>
                 <option value="descending">Descending</option>
-                <option value="date">Date</option>
             </select>
         </label>
     )
+}
+
+export const sortByField = (array, field, sortOrder) => {
+    return array.sort((a, b) => {
+      if (sortOrder === 'ascending') {
+        return a[field].localeCompare(b[field]);
+      } else if (sortOrder === 'descending') {
+        return b[field].localeCompare(a[field]);
+      }
+      return 0; // Default case, no sorting
+    });
 }

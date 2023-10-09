@@ -13,11 +13,12 @@ const LayoutItemsContainer = () => {
     const { currentUser } = useAuth()
 
     useEffect(() => {
-        if (!localStorage.getItem('user')) {
+        if (!localStorage.getItem('user') || localStorage.getItem('user') == null) {
           navigate('/login')
         } 
       },[]);
 
+    //   console.log(localStorage.getItem('user'))
 
 
     return(

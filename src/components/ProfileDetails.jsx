@@ -19,6 +19,7 @@ const ProfileDetails = (props) => {
 
     console.log(user)
 
+    // }
     const Content = () => (
         <div className="absolute top-0 right-0 h-fit bg-white drop-shadow-md w-screen sm:w-25vw z-20 rounded-sm">
             <div className="w-full h-full flex flex-col items-center">

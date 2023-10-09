@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import AddToDoModel from "./AddToDoModel";
 import ModelOverlay from "./ModelOverlay";
 
-const ToDoAddButton = () => {
+const ToDoAddButton = (props) => {
 
     const [isVisible, setIsVisible] = useState(false)
     return(
@@ -14,7 +14,7 @@ const ToDoAddButton = () => {
                 Add
             </button>
             <ModelOverlay visibility={isVisible} setVisibility={setIsVisible}>
-                <AddToDoModel/>
+                <AddToDoModel setUpdate={props.setUpdate} setVisibility={setIsVisible}/>
             </ModelOverlay>
         </>
     )

@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {ReactComponent as Task} from '../assets/Task.svg'
 import {ReactComponent as Intern} from '../assets/Intern.svg'
 import {ReactComponent as User } from '../assets/user.svg'
 import { NavLink } from "react-router-dom";
-import internData from "../data/internData";
 import InternContext from "../store/Intern/InternContext";
+import { db } from "../firebase/firebaseConfig";
+import { collection, getDocs } from 'firebase/firestore'
 
 
 export const Tittle = (props) => {
@@ -22,7 +23,19 @@ export const Tittle = (props) => {
 const SlideBar = (props) => {
 
     const [visibility, setVisbility] = useState(false)
+    const [internData, setInternData] = useState([])
     const ctx = useContext(InternContext)
+    const internCollectionRef = collection(db, "interns")
+
+    useEffect(() => {
+        const getInternData = async() => {
+            const res = await getDocs(internCollectionRef)
+            setInternData(res.docs.map((doc) => ({...doc.data(), id: doc.id})))
+        }
+        
+        getInternData()
+    },[])
+
 
     return(
         <section className={`w-full sm:w-1/5 hidden sm:flex flex-col justify-center items-center bg-white drop-shadow-lg`}>
@@ -38,7 +51,7 @@ const SlideBar = (props) => {
                                 {internData.map((user) => (
                                     <Tittle onClick={() => {ctx.changeUser(user)}} key={user.id}>
                                         <User className="fill-slate-600 group-hover:fill-blue-700"/>
-                                        <h2 className="group-hover:text-blue-700">{user.name}</h2>
+                                        <h2 className="group-hover:text-blue-700">{user.name} - {user.role}</h2>
                                     </Tittle>
                                 ))}
                             </div> : null

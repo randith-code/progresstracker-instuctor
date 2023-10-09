@@ -27,7 +27,7 @@ const TaskDetailsModel = (props) => {
                     </tr>
                     <tr>
                         <td className="text-right">Materials or Reference links &nbsp;: &nbsp;</td>
-                        <td></td>
+                        <td>{props.links}</td>
                     </tr>
                </tbody>
             </table>
